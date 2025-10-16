@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 25% 97%;
+    --foreground: 221 39% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 221 39% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 221 39% 11%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 221 39% 11%;
+
+    --muted: 214 32% 91%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 189 94% 43%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.75rem;
+
+    /* Custom navigation tokens */
+    --room-default: 210 30% 90%;
+    --room-hover: 221 83% 53%;
+    --room-selected: 189 94% 43%;
+    --path-stroke: 45 93% 58%;
+    --path-glow: 45 93% 58%;
+    
+    --gradient-bg: linear-gradient(135deg, hsl(220 25% 97%), hsl(210 30% 95%));
+    --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%), hsl(250 70% 60%));
+    --shadow-card: 0 4px 20px -2px hsl(221 39% 11% / 0.08);
+    --shadow-lg: 0 10px 40px -5px hsl(221 39% 11% / 0.12);
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --card: 224 71% 6%;
+    --card-foreground: 213 31% 91%;
+
+    --popover: 224 71% 6%;
+    --popover-foreground: 213 31% 91%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 47% 11%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 189 94% 43%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 47% 11%;
+    --input: 222 47% 11%;
+    --ring: 221 83% 53%;
+
+    --room-default: 222 47% 15%;
+    --room-hover: 221 83% 53%;
+    --room-selected: 189 94% 43%;
+    --path-stroke: 45 93% 58%;
+    --path-glow: 45 93% 58%;
+    
+    --gradient-bg: linear-gradient(135deg, hsl(224 71% 4%), hsl(222 47% 8%));
+    --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%), hsl(250 70% 60%));
+    --shadow-card: 0 4px 20px -2px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 10px 40px -5px hsl(0 0% 0% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-bg);
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .animate-path-draw {
+    animation: drawPath 2s ease-out forwards;
+  }
+  
+  .animate-pulse-path {
+    animation: pulsePath 2s ease-in-out infinite;
+  }
+  
+  @keyframes drawPath {
+    from {
+      stroke-dashoffset: 1000;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @keyframes pulsePath {
+    0%, 100% {
+      opacity: 1;
+      stroke-width: 3;
+    }
+    50% {
+      opacity: 0.6;
+      stroke-width: 4;
+    }
+  }
+}

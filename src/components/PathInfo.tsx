@@ -36,7 +36,7 @@ export const PathInfo = ({ path, graph }: PathInfoProps) => {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Navigation className="w-5 h-5 text-primary" />
-          Navigation Path
+          Navig Path
         </CardTitle>
         <CardDescription>
           {path.length} stops • {calculateDistance()}m estimated distance

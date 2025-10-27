@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://public-frontend-cos.metadl.com/mgx/img/favicon.png" type="image/png">
+  <title>Smart Indoor Navigation System</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>🌐 Smart Indoor Navigation</h1>
+      <p class="subtitle">Find the shortest path between any two rooms</p>
+    </header>
+
+    <!-- Control Panel -->
+    <div class="control-panel">
+      <div class="controls-row">
+        <div class="control-group">
+          <label for="source-room">From:</label>
+          <select id="source-room" class="room-select">
+            <option value="">Select source room</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="dest-room">To:</label>
+          <select id="dest-room" class="room-select">
+            <option value="">Select destination room</option>
+          </select>
+        </div>
+
+        <button id="find-path-btn" class="btn btn-primary">
+          Find Path
+        </button>
+
+        <button id="clear-path-btn" class="btn btn-secondary">
+          Clear Path
+        </button>
+      </div>
+
+      <!-- Floor Switcher -->
+      <div class="floor-switcher">
+        <span class="floor-label">Floor:</span>
+        <button id="floor-0" class="floor-btn active">Ground Floor</button>
+        <button id="floor-1" class="floor-btn">First Floor</button>
+      </div>
+    </div>
+
+    <!-- Message Display -->
+    <div id="message" class="message" style="display: none;"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- SVG Map Container -->
+      <div class="map-container">
+        <svg id="floor-map" class="floor-map"></svg>
+        <div class="map-controls">
+          <button id="reset-view-btn" class="btn-icon" title="Reset View">
+            ↺
+          </button>
+        </div>
+        <div class="map-legend">
+          <div class="legend-item">
+            <span class="legend-icon room"></span>
+            <span>Room</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-icon corridor"></span>
+            <span>Corridor</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-icon stairs"></span>
+            <span>Stairs</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-icon path"></span>
+            <span>Path</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Path Information Panel -->
+      <div id="path-info" class="path-info" style="display: none;">
+        <!-- Path details will be inserted here dynamically -->
+      </div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="instructions">
+      <h3>How to Use:</h3>
+      <ul>
+        <li><strong>Select Rooms:</strong> Choose your starting point and destination from the dropdowns</li>
+        <li><strong>Find Path:</strong> Click "Find Path" to calculate and visualize the shortest route</li>
+        <li><strong>Navigate Map:</strong> Use mouse wheel to zoom, click and drag to pan</li>
+        <li><strong>Switch Floors:</strong> Use floor buttons to view different levels</li>
+        <li><strong>Mobile:</strong> Pinch to zoom, drag to pan on touch devices</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./campus-data.js"></script>
+  <script src="./graph.js"></script>
+  <script src="./svg-handler.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>

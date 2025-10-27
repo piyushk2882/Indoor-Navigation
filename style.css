@@ -1,0 +1,546 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Control Panel */
+.control-panel {
+    padding: 25px 30px;
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.controls-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.control-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.9rem;
+}
+
+.room-select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.room-select:hover {
+    border-color: #667eea;
+}
+
+.room-select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.btn-icon {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    color: #667eea;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-icon:hover {
+    background: #667eea;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Floor Switcher */
+.floor-switcher {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.floor-label {
+    font-weight: 600;
+    color: #495057;
+}
+
+.floor-btn {
+    padding: 10px 20px;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    background: white;
+    color: #495057;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.floor-btn:hover {
+    border-color: #667eea;
+    color: #667eea;
+}
+
+.floor-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+}
+
+/* Message */
+.message {
+    margin: 0 30px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.message.info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* Main Content */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 20px;
+    padding: 30px;
+}
+
+/* Map Container */
+.map-container {
+    position: relative;
+    background: #f8f9fa;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+    min-height: 500px;
+}
+
+.floor-map {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    cursor: grab;
+    touch-action: none;
+}
+
+.floor-map:active {
+    cursor: grabbing;
+}
+
+.map-controls {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.map-legend {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.legend-item:last-child {
+    margin-bottom: 0;
+}
+
+.legend-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.legend-icon.room {
+    background: #667eea;
+}
+
+.legend-icon.corridor {
+    background: #95a5a6;
+}
+
+.legend-icon.stairs {
+    background: #f39c12;
+}
+
+.legend-icon.path {
+    background: #e74c3c;
+}
+
+/* SVG Styles */
+.corridor-line {
+    stroke: #bdc3c7;
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.node {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.node-room {
+    fill: #667eea;
+    stroke: #5568d3;
+    stroke-width: 2;
+}
+
+.node-entrance {
+    fill: #27ae60;
+    stroke: #229954;
+    stroke-width: 2;
+}
+
+.node-corridor {
+    fill: #95a5a6;
+    stroke: #7f8c8d;
+    stroke-width: 2;
+}
+
+.node-stairs {
+    fill: #f39c12;
+    stroke: #d68910;
+    stroke-width: 2;
+}
+
+.node:hover {
+    filter: brightness(1.2);
+    transform: scale(1.1);
+}
+
+.node-label {
+    fill: #2c3e50;
+    font-size: 12px;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.path-line {
+    stroke: #e74c3c;
+    stroke-width: 4;
+    stroke-linecap: round;
+    fill: none;
+    filter: drop-shadow(0 0 5px rgba(231, 76, 60, 0.5));
+}
+
+.path-node {
+    fill: #e74c3c;
+    stroke: white;
+    stroke-width: 2;
+}
+
+.path-start {
+    fill: #27ae60;
+    stroke: white;
+    stroke-width: 3;
+}
+
+.path-end {
+    fill: #e74c3c;
+    stroke: white;
+    stroke-width: 3;
+}
+
+/* Animations */
+@keyframes drawPath {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Path Info Panel */
+.path-info {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.path-details {
+    margin-bottom: 20px;
+}
+
+.path-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.path-stat:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    font-weight: 600;
+    color: #495057;
+}
+
+.stat-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.path-instructions h4 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.path-instructions ol {
+    padding-left: 20px;
+}
+
+.path-instructions li {
+    margin-bottom: 10px;
+    color: #495057;
+}
+
+/* Instructions */
+.instructions {
+    padding: 30px;
+    background: #f8f9fa;
+    border-top: 2px solid #e9ecef;
+}
+
+.instructions h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.instructions ul {
+    list-style: none;
+    padding: 0;
+}
+
+.instructions li {
+    padding: 10px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #495057;
+}
+
+.instructions li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
+}
+
+.instructions strong {
+    color: #2c3e50;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .path-info {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .controls-row {
+        flex-direction: column;
+    }
+
+    .control-group {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .floor-switcher {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .floor-btn {
+        width: 100%;
+    }
+
+    .map-legend {
+        font-size: 0.8rem;
+    }
+
+    .instructions {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .control-panel {
+        padding: 15px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .map-container {
+        min-height: 400px;
+    }
+
+    .floor-map {
+        min-height: 400px;
+    }
+}
+
+.map-legend {
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+}
